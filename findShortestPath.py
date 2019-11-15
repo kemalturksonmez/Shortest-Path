@@ -29,7 +29,6 @@ washPoints = [Point(-77.04101979732513,38.99586514404603),
                   Point(-76.90938234329224,38.892886657138156)]
 
 # This method recieves data stored in a geojson manner and creates a gist with it
-# Converts a string into a dict, then back into a string with the indents applied
 def sendToGeojson(data):
     data = json.dumps(data, indent=4)
     geoJ = json.loads(data)
@@ -397,14 +396,14 @@ elif userIn == "path":
 	print("Latitude should be between -90 and 90 degrees")
 	print("Longitude should be between -180 and 180 degrees")
 	lat1, lat2, long1, long2 = 200, 200, 200, 200
-	while lat1 < -90 or lat1 > 90:
-		lat1 = float(input("Enter the first latitude coordinate: "))
 	while long1 < -180 or long1 > 180:
 		long1 = float(input("Enter the first longitude coordinate: "))
-	while lat2 < -90 or lat2 > 90:
-		lat2 = float(input("Enter the second latitude coordinate: "))
+	while lat1 < -90 or lat1 > 90:
+		lat1 = float(input("Enter the first latitude coordinate: "))
 	while long2 < -180 or long2 > 180:
 		long2 = float(input("Enter the first longitude coordinate: "))
+	while lat2 < -90 or lat2 > 90:
+		lat2 = float(input("Enter the second latitude coordinate: "))
 	point1 = Point(long1, lat1)
 	point2 = Point(long2, lat2)
 	runProgram(point1,point2)
